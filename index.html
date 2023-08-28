@@ -6,70 +6,52 @@
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./Assets/CSS/style.css">
 </head>
+
     <!-- outer container -->
-    <div class="outer">
+    <body class="outer">
+
         <!-- top bar -->
         <nav class="nav-bar">
-            <button>View Highscores</button>
-            <p>Timer: 00:00</p>
+            <button href="./leaderboard.html">View Highscores</button>
+            <p class="timer">Time: <span id="time">0</span></p>
         </nav>
+
         <!-- inner container -->
         <div class="inner">
+
             <!-- quiz intro -->
-            <header class="intro">
+            <header id="intro" class="intro">
                 <h1>Coding Quiz Challenge</h1>
                 <p>Try to answer the code-related questions</p>
-                <button>Start Quiz!</button>
+                <button id="start">Start Quiz!</button>
 
             </header>
             <!-- quiz content -->
             <main>
-                <section class="">
-                    <h2>question</h2>
-                    <ul>
-                        <li>ans</li>
-                        <li>ans</li>
-                        <li>ans</li>
-                        <li>ans</li>
-                    </ul>
-
+                <section id="question-box" class="hide" >
+                    <h2 id="questions"></h2>
+                    <div id="choices" class="choices"></div>
                 </section>
+
+                <!-- question response -->
+                <div id="response" class="hide"></div>
+                
                 <!-- quiz finish -->
-                <section class="">
+                <section id="quiz-end" class="hide">
                     <h2>Quiz Complete!</h2>
-                    <p>Your Score: 00</p>
+                    <p>Your Score: <span id="final-score"></span></p>
                     <div>
+                        <!-- user submission -->
                         <label for="">Enter Initals</label>
-                        <input type="text">
-                        <button>Submit</button>
+                        <input type="text" id="initals" max="3">
+                        <button id="submit">Submit</button>
                     </div>
-
                 </section>
-                <!-- high score screen -->
-                <section class="">
-                    <h2>Highscores</h2>
-                    <ol>
-
-
-                    </ol>
-
-                </section>
-            </main>
-
+            </main> 
         </div>
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-<body>
+    </body>
+    <!-- JavaScript -->
+    <script src="./Assets/JavaScript/script.js"></script>
+    <script src="./Assets/JavaScript/questions.js"></script>
     
-</body>
 </html>

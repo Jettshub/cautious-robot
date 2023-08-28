@@ -1,9 +1,23 @@
 // vars
-
+var secondsLeft = 75;
 // start button
-
+function startButton()
 // timer
-
+function setTimer() {
+    // Sets interval in variable
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      timeEl.textContent = "time "+ secondsLeft;
+  
+      if(secondsLeft === 0) {
+        // Stops execution of action at set interval
+        clearInterval(timerInterval);
+        // Calls function to show end screen
+        endScreen();
+      }
+  
+    }, 1000);
+  }
 // answer question
 
 // next question
@@ -15,10 +29,13 @@
 // timer ending/all questions answered
 
 // game over
+function endScreen() {
 
-// leaderboard
+}
+// leaderboard seperate js file?
 
-// questions
+// questions seperate js file?
+
 GIVEN I am taking a code quiz
 WHEN I click the start button
 THEN a timer starts and I am presented with a question
