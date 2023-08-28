@@ -3,7 +3,6 @@ var questionArr = [
         question: "Commonly used data types DO Not include:",
         choices:["strings", "booleans", "alerts", "numbers"],
         answer: "alerts"
-
     },
 
     {

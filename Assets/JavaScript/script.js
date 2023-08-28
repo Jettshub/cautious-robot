@@ -1,6 +1,13 @@
 // vars
-var secondsLeft = 75;
-var time = questionArr.length * 15;
+
+var time = 75;
+var timerEl = document.getElementById("time");
+var startBtn = document.getElementById("start");
+var questionsEl = document.getElementById("questionArr");
+var choicesEl = document.getElementById("choices");
+var responseEl = document.getElementById("response");
+var submitBtn = document.getElementById("submit")
+var timerId;
 
 
 
@@ -10,28 +17,41 @@ var time = questionArr.length * 15;
 
 
 // start button/Start quiz
-function startButton(){
+
+function startButton() {
     var startQuiz = document.getElementById("intro");
-    startQuiz.setAttribute("class", "intro hide")
+    startQuiz.setAttribute("class", "intro hide");
+        
+    questionsEl.setAttribute("class", " ");
+   
+    // starts timer 
+    timerId = setInterval(function () {
+        setTimer();
+      }, 1000);
+      // Display start time
+      timerEl.textContent = time;
+
+      getQuestion();
+};
+
+startBtn.onclick = startButton;
+
+// timer
+function setTimer() {
+    time--;
+    timerEl.textContent = time;
+  
+    if (time <= 0) quizEnd();
+};
+
+//   
+function getQuestion() {
+
+
 
 
 }
-// timer
-function setTimer() {
-    // Sets interval in variable
-    var timerInterval = setInterval(function() {
-      secondsLeft--;
-      timeEl.textContent = "time "+ secondsLeft;
-  
-      if(secondsLeft === 0) {
-        // Stops execution of action at set interval
-        clearInterval(timerInterval);
-        // Calls function to show end screen
-        endScreen();
-      }
-  
-    }, 1000);
-  }
+
 // answer question
 
 // next question
