@@ -8,7 +8,7 @@ var choicesEl = document.getElementById("choices");
 var responseEl = document.getElementById("response");
 var submitBtn = document.getElementById("submit")
 var timerId;
-
+var questionIndex = 0;
 
 
 
@@ -44,9 +44,41 @@ function setTimer() {
     if (time <= 0) quizEnd();
 };
 
-//   
+// grabs question from array  
 function getQuestion() {
+   var currentQuestion = questionArr[questionIndex];
+    // shows question    
+   questionsEl.children[0].textContent = currentQuestion.question;
+    // keeps choices with the question
+   while (choicesEl.hasChildNodes()) {
+    choicesEl.removeChild(choicesEl.lastChild);
+   }
+    // populates the amount of choices  
+   for (var i = 0; i < currentQuestion.choices.length; i++) {
+    // creates button for choices
+    var choiceButton = document.createElement("button");
+    // shows the choices of the current question
+    choiceButton.textContent = currentQuestion.choices[i];
+    // shows choices button
+    choicesEl.appendChild(choiceButton);
+   }
+    // adds a click function to each choice button   
+    choicesEl.children[0].addEventListener("click", function (event) {
+        choiceClick(choicesEl.children[0]);
+    });
+    choicesEl.children[1].addEventListener("click", function (event) {
+        choiceClick(choicesEl.children[1]);
+    });
+    choicesEl.children[2].addEventListener("click", function (event) {
+        choiceClick(choicesEl.children[2]);
+    });
+    choicesEl.children[3].addEventListener("click", function (event) {
+        choiceClick(choicesEl.children[3]);
+    });
+};
 
+// function that happens when choice is made for question
+function choiceClick() {
 
 
 
